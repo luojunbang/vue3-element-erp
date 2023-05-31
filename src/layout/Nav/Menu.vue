@@ -1,12 +1,23 @@
 <template>
   <template v-for="item in menu" :key="item.path">
     <el-sub-menu v-if="item.children && item.children.length > 0" :index="cpHref(item.path)">
-      <template #title>{{ item.title }}</template>
+      <template #title>
+        <el-icon><i-ep-circle-check-filled /></el-icon>
+        <span>{{ item.title }}</span>
+      </template>
       <Menu :menu="item.children" :baseUrl="cpHref(item.path)" />
     </el-sub-menu>
-    <el-menu-item v-else :index="cpHref(item.path)">
-      <Link :to="cpHref(item.path)">{{ item.title }}</Link>
-    </el-menu-item>
+
+    <template v-else>
+      <Link :to="cpHref(item.path)">
+        <el-menu-item :index="cpHref(item.path)">
+          <el-icon><i-ep-location /></el-icon>
+          <template #title>
+            <span>{{ item.title }}</span>
+          </template>
+        </el-menu-item>
+      </Link>
+    </template>
   </template>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <router-link class="link" v-bind="$attrs" :to="to"><slot></slot></router-link>
+  <router-link class="text-left" v-bind="$attrs" :to="to"><slot></slot></router-link>
 </template>
 
 <script lang="ts" setup>
