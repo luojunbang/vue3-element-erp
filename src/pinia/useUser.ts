@@ -1,29 +1,38 @@
 import { defineStore } from 'pinia'
 
 interface UserInfo {
-  userName: string
+  userName: string | null | undefined
 }
 
-async function fetchUseInfo(): Promise<UserInfo> {
+async function fetchUserInfo(): Promise<UserInfo> {
   return {
     userName: '用户名',
   }
 }
 
 export const useUserStore = defineStore('user', {
-  state: () => {
+  state: (): { isLogin: boolean; userInfo: UserInfo } => {
     return {
-      userName: '--',
+      isLogin: false,
+      userInfo: {
+        userName: null,
+      },
     }
   },
   actions: {
     async login() {
-      const userInfo = await fetchUseInfo()
-      this.$patch(userInfo)
+      this.isLogin = true
+    },
+    async fetchUserInfo() {
+      const userInfo = await fetchUserInfo()
+      this.$patch({ userInfo })
     },
     logout() {
+      this.isLogin = false
       this.$patch({
-        userName: '--',
+        userInfo: {
+          userName: null,
+        },
       })
     },
   },

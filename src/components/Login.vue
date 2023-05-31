@@ -11,8 +11,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useUserStore } from '@/pinia'
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const UserStore = useUserStore()
 //ref
 const form = reactive({
   username: '',
@@ -20,7 +24,9 @@ const form = reactive({
 })
 
 //methods
-const handleLogin = () => {
-  console.log('login', form)
+const handleLogin = async () => {
+  UserStore.login().then(res => {
+    router.push('/')
+  })
 }
 </script>

@@ -4,7 +4,7 @@
     <h2 class="ml-2">项目管理系统</h2>
     <div class="flex-1"></div>
     <el-avatar />
-    <div class="ml-2">{{ UserStore.userName }}</div>
+    <div class="ml-2">{{ UserStore.userInfo.userName }}</div>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import { useUserStore } from '@/pinia'
 const UserStore = useUserStore()
 //lifecycle
 onMounted(() => {
-  UserStore.login()
+  UserStore.fetchUserInfo()
 })
 </script>
 

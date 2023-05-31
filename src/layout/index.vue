@@ -6,8 +6,12 @@
         <el-scrollbar view-style="height:100%"><Nav /></el-scrollbar>
       </el-aside>
       <el-main class="h-full">
-        <el-scrollbar>
-          <router-view />
+        <el-scrollbar height="100%" wrap-class="p-[--up-main-padding] bg-[--up-background-color]">
+          <router-view v-slot="{ Component }">
+            <transition name="fade-transform" mode="out-in">
+              <component :is="Component" />
+            </transition>
+          </router-view>
         </el-scrollbar>
       </el-main>
     </el-container>
@@ -18,9 +22,10 @@ import { computed } from 'vue'
 import LayoutHeader from './LayoutHeader.vue'
 import Nav from './Nav/index.vue'
 import { useAppStore } from '@/pinia'
+import { useRoute } from 'vue-router'
 
 const AppStore = useAppStore()
-
+const route = useRoute()
 // computed
 </script>
 
@@ -28,9 +33,5 @@ const AppStore = useAppStore()
 .el-main,
 .el-header {
   padding: 0;
-}
-.el-aside {
-  --up-expand-width: 200px;
-  --up-collapse-width: 64px;
 }
 </style>

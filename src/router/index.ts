@@ -22,6 +22,15 @@ const routes: Array<RouteRecordRaw> = [
     component: Layout,
     children: [{ path: 'dashboard', name: 'Dashboard', component: Dashboard }],
   },
+  { path: '/:pathMatch(.*)*', redirect: '/404' },
+  {
+    path: '/404',
+    component: () => import('@/views/Apps/404.vue'),
+  },
+  {
+    path: '/401',
+    component: () => import('@/views/Apps/401.vue'),
+  },
   system,
 ]
 

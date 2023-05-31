@@ -1,0 +1,22 @@
+@mixin light-theme {
+  --up-background-color: rgba(240, 242, 245, 1);
+}
+
+.light {
+  @include light-theme;
+}
+
+:root {
+  @include light-theme;
+}
+
+// :root:not(.light):not(.dark) {
+//   @media (prefers-color-scheme: dark) {
+//     color-scheme: dark;
+//     @include dark-theme;
+//   }
+//   @media (prefers-color-scheme: light) {
+//     color-scheme: light;
+//     @include light-theme;
+//   }
+// }

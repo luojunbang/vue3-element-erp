@@ -1,9 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
-import '@/common/style/index.scss'
 import { createPinia } from 'pinia'
+
+import '@/router/permission'
+import '@/common/style/index.scss'
 
 const pinia = createPinia()
 

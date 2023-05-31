@@ -1,8 +1,10 @@
 @use 'sass:map';
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@import './var.scss';
+@import './common.scss';
 
 * {
   margin: 0;

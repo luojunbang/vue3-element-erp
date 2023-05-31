@@ -1,3 +1,3 @@
 <template>
-  <div class="min-h-screen px-7">Dashborad</div>
+  <div class="h-full px-7 block-wrapper">Dashborad</div>
 </template>

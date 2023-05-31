@@ -3,7 +3,7 @@
     <el-menu class="flex-1" :collapse="isCollaspe">
       <MenuItem :menu="menu" />
     </el-menu>
-    <el-button text bg class="leading-10 rounded-none text-left transition-all" :style="{ width: isCollaspe ? 'var(--up-collapse-width)' : 'var(--up-expand-width)' }" @click="handleToggleMenu">
+    <el-button class="leading-10 rounded-none text-left transition-all" :style="{ width: isCollaspe ? 'var(--up-collapse-width)' : 'var(--up-expand-width)' }" @click="handleToggleMenu">
       <i-ep-expand v-show="isCollaspe" />
       <i-ep-fold v-show="!isCollaspe" />
     </el-button>
