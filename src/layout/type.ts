@@ -6,3 +6,9 @@ export declare interface Menu {
   }
   children?: Menu[]
 }
+
+export declare interface Tab {
+  label: string
+  key: string
+  baseUrl: string
+}

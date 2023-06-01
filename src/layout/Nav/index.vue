@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, reactive } from 'vue'
-import type { Menu } from './type'
+import type { Menu } from '../type'
 import MenuItem from './Menu.vue'
 import { useAppStore } from '@/pinia'
 
@@ -30,6 +30,7 @@ const handleToggleMenu = () => {
 const fecthMenu = async () => {
   return [
     { title: '首页', path: '' },
+    { title: '合同', path: 'contract' },
     {
       title: '系统管理',
       path: 'system',

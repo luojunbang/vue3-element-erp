@@ -12,7 +12,8 @@ router.beforeEach((to, from, next) => {
   NProgress.start()
   if (whiteList.includes(to.path)) next()
   else {
-    if (!UserStore.isLogin) {
+    if (UserStore.isLogin) {
+      // toDo...
       next('/login')
     } else if (roleCheck(to)) {
       next()
@@ -28,8 +29,8 @@ router.afterEach(() => {
 })
 
 function roleCheck(to: RouteLocationNormalized): boolean {
-  console.log(to)
-  if (to.path === '/system/user') return false
   const UserStore = useUserStore()
+  // role check
+  if (to.path === '/system/user') return false
   return true
 }

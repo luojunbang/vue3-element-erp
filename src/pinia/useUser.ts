@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 interface UserInfo {
-  userName: string | null | undefined
+  userName: string | null
 }
 
 async function fetchUserInfo(): Promise<UserInfo> {

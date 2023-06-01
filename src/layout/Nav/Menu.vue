@@ -25,7 +25,7 @@
 import Link from './Link.vue'
 import type { PropType } from 'vue'
 import { onMounted, computed } from 'vue'
-import type { Menu } from './type'
+import type { Menu } from '../type'
 
 const props = defineProps({
   menu: {
